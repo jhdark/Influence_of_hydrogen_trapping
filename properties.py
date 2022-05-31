@@ -161,6 +161,8 @@ def S_lipb(T):
 
 if __name__ == "__main__":
 
+    print(rho_lipb(300))
+
     def tick_function(X):
         V = 1000 / (X)
         return ["%.0f" % z for z in V]

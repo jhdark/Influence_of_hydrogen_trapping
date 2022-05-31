@@ -16,15 +16,15 @@ id_lipb = 6
 id_inlet = 9
 id_outlet = 10
 
-mesh_folder = "meshes/2D/mesh_fine/"
+mesh_folder = "meshes/"
 
 # ##### Create SubMesh ##### #
 mesh_full = Mesh()
-XDMFFile(mesh_folder + "/mesh_domains_fine.xdmf").read(mesh_full)
+XDMFFile(mesh_folder + "mesh_domains_fine.xdmf").read(mesh_full)
 volume_markers, surface_markers = FESTIM.meshing.read_subdomains_from_xdmf(
     mesh_full,
-    mesh_folder + "/mesh_domains_fine.xdmf",
-    mesh_folder + "/mesh_boundaries_fine.xdmf",
+    mesh_folder + "mesh_domains_fine.xdmf",
+    mesh_folder + "mesh_boundaries_fine.xdmf",
 )
 mesh_sub = SubMesh(mesh_full, volume_markers, id_lipb)  # doesn't work in parrallel
 
@@ -162,13 +162,13 @@ u_full = project(u_full, V_full)
 # project on fine mesh
 print("Projecting on finer mesh")
 mesh_refined = Mesh()
-XDMFFile("meshes/2D/mesh_fine/mesh_domains_fine.xdmf").read(mesh_refined)
+XDMFFile("meshes/mesh_domains_fine.xdmf").read(mesh_refined)
 
 V_ele = VectorElement("CG", mesh_refined.ufl_cell(), 2)
 V_u = FunctionSpace(mesh_refined, V_ele)
 u_full.set_allow_extrapolation(True)
 u = project(u_full, V_u, solver_type="mumps")  # solver type mumps to avoid memory error
 
-XDMFFile("Results/u_full_fine.xdmf").write_checkpoint(
+XDMFFile("Results/velocity_fields/u_full_fine.xdmf").write_checkpoint(
     u, "u", 0, XDMFFile.Encoding.HDF5, append=False
 )

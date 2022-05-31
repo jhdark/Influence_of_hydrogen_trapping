@@ -23,7 +23,7 @@ docker run -ti -v $(pwd):/home/fenics/shared --name fenics quay.io/fenicsproject
 ```
 Install a FESTIM v0.7
 ```python
-pip install git+https://github.com/RemDelaporteMathurin/FESTIM@v0.7
+pip install git+https://github.com/RemDelaporteMathurin/FESTIM@v0.7.1
 ```
 To run the FESTIM simulations:
 ```python

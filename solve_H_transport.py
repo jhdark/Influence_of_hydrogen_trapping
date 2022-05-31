@@ -29,10 +29,7 @@ def run_H_transport(parameters, S_0_lipb=S_0_lipb, E_S_lipb=E_S_lipb, log_level=
     V_ele = VectorElement("CG", mesh.ufl_cell(), 2)
     V_u = FunctionSpace(mesh, V_ele)
 
-    mesh_cfd = "Results/velocity_fields/u_full_fine_buoyancy.xdmf"
-    if "type" in parameters["solving_parameters"]:
-        if parameters["solving_parameters"]["type"] == "solve_stationary":
-            mesh_cfd = "Results/velocity_fields/u_full_fine_buoyancy.xdmf"
+    mesh_cfd = "Results/velocity_fields/u_full_fine.xdmf"
     u = Function(V_u)
     XDMFFile(mesh_cfd).read_checkpoint(u, "u", -1)
 
