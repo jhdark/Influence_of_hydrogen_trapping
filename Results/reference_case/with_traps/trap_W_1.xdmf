@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<Xdmf Version="3.0">
+  <Domain>
+    <Grid GridType="Collection" CollectionType="Temporal" Name="trap_W_1">
+      <Grid Name="trap_W_1_0" GridType="Uniform">
+        <Topology NumberOfElements="348418" TopologyType="Triangle" NodesPerElement="3">
+          <DataItem Dimensions="348418 3" NumberType="UInt" Format="HDF">trap_W_1.h5:trap_W_1/trap_W_1_0/mesh/topology</DataItem>
+        </Topology>
+        <Geometry GeometryType="XY">
+          <DataItem Dimensions="177391 2" Format="HDF">trap_W_1.h5:trap_W_1/trap_W_1_0/mesh/geometry</DataItem>
+        </Geometry>
+        <Time Value="0.000000" />
+        <Attribute ItemType="FiniteElementFunction" ElementFamily="DG" ElementDegree="1" ElementCell="triangle" Name="trap_W_1" Center="Other" AttributeType="Scalar">
+          <DataItem Dimensions="1045254 1" NumberType="UInt" Format="HDF">trap_W_1.h5:trap_W_1/trap_W_1_0/cell_dofs</DataItem>
+          <DataItem Dimensions="3313153 1" NumberType="Float" Format="HDF">trap_W_1.h5:trap_W_1/trap_W_1_0/vector</DataItem>
+          <DataItem Dimensions="348419 1" NumberType="UInt" Format="HDF">trap_W_1.h5:trap_W_1/trap_W_1_0/x_cell_dofs</DataItem>
+          <DataItem Dimensions="348418 1" NumberType="UInt" Format="HDF">trap_W_1.h5:trap_W_1/trap_W_1_0/cells</DataItem>
+        </Attribute>
+      </Grid>
+    </Grid>
+  </Domain>
+</Xdmf>
