@@ -17,10 +17,7 @@ For Windows users:
 ```python
 docker run -ti -v ${PWD}:/home/fenics/shared --name fenics quay.io/fenicsproject/stable:latest
 ```
-For Linux users:
-```python
-docker run -ti -v $(pwd):/home/fenics/shared --name fenics quay.io/fenicsproject/stable:latest
-```
+
 Install a FESTIM v0.7
 ```python
 pip install git+https://github.com/RemDelaporteMathurin/FESTIM@v0.7.1
