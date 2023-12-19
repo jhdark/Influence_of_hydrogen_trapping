@@ -111,35 +111,35 @@ parameters = {
             "id": id_lipb,
         },
     ],
-    "traps": [],
-    # {
-    #     "E_k": properties.E_D_W,
-    #     "k_0": properties.D_0_W / (1.1e-10**2 * 6 * properties.atom_density_W),
-    #     "E_p": 0.87,
-    #     "p_0": 1e13,
-    #     "density": 1.3e-3 * properties.atom_density_W,
-    #     "materials": [id_W],
-    # },
-    # {
-    #     "k_0": 4.1e-7 / (1.1e-10**2 * 6 * properties.atom_density_W),
-    #     "E_k": 0.39,
-    #     "p_0": 1e13,
-    #     "E_p": 1.0,
-    #     "density": 4e-4 * properties.atom_density_W,
-    #     "materials": [id_W],
-    # },
-    # {
-    #     "E_k": properties.E_D_eurofer,
-    #     "k_0": properties.D_0_eurofer
-    #     / (1.1e-10**2)
-    #     * 0.8165
-    #     / properties.atom_density_eurofer,
-    #     "E_p": properties.trap_energy_eurofer,
-    #     "p_0": 1e13,
-    #     "density": properties.trap_density_eurofer,
-    #     "materials": id_eurofers,
-    # },
-    # ],
+    "traps": [
+    {
+        "E_k": properties.E_D_W,
+        "k_0": properties.D_0_W / (1.1e-10**2 * 6 * properties.atom_density_W),
+        "E_p": 0.87,
+        "p_0": 1e13,
+        "density": 1.3e-3 * properties.atom_density_W,
+        "materials": [id_W],
+    },
+    {
+        "k_0": 4.1e-7 / (1.1e-10**2 * 6 * properties.atom_density_W),
+        "E_k": 0.39,
+        "p_0": 1e13,
+        "E_p": 1.0,
+        "density": 4e-4 * properties.atom_density_W,
+        "materials": [id_W],
+    },
+    {
+        "E_k": properties.E_D_eurofer,
+        "k_0": properties.D_0_eurofer
+        / (1.1e-10**2)
+        * 0.8165
+        / properties.atom_density_eurofer,
+        "E_p": properties.trap_energy_eurofer,
+        "p_0": 1e13,
+        "density": properties.trap_density_eurofer,
+        "materials": id_eurofers,
+    },
+    ],
     "temperature": {
         "type": "solve_stationary",
         "boundary_conditions": [
@@ -244,14 +244,13 @@ parameters = {
     },
     "exports": {
         "xdmf": {
-            # "functions": ["solute", "1", "2", "3", "retention"],
-            "functions": ["solute"],
+            "functions": ["solute", "1", "2", "3", "retention"],
             "labels": [
                 "solute",
-                # "trap_W_1",
-                # "trap_W_2",
-                # "trap_eurofer_1",
-                # "retention",
+                "trap_W_1",
+                "trap_W_2",
+                "trap_eurofer_1",
+                "retention",
             ],
             "folder": "Results",
             "nb_iterations_between_exports": 1,
@@ -260,10 +259,10 @@ parameters = {
         "derived_quantities": {
             "total_volume": [
                 {"volumes": [id_W, *id_eurofers, id_lipb], "field": "solute"},
-                # {"volumes": [id_W], "field": "1"},
-                # {"volumes": [id_W], "field": "2"},
-                # {"volumes": [*id_eurofers], "field": "3"},
-                # {"volumes": [id_W, *id_eurofers], "field": "retention"},
+                {"volumes": [id_W], "field": "1"},
+                {"volumes": [id_W], "field": "2"},
+                {"volumes": [*id_eurofers], "field": "3"},
+                {"volumes": [id_W, *id_eurofers], "field": "retention"},
             ],
             "surface_flux": [
                 {
